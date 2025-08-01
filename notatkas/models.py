@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 class Task(models.Model):
 
     STATUS_CHOISES = [
-        ("todo", "To Do"),
-        ("in_prog", "In progression"),
-        ("done", "Done")
+        ("To Do", "To Do"),
+        ("In Progression", "In progression"),
+        ("Done", "Done")
     ]
 
-    PRIORITY = [
+    PRIORITY = [    
         ("low",'low'),
         ("med", "Medium"),
         ('high', 'High'),
@@ -22,3 +22,9 @@ class Task(models.Model):
     prior = models.CharField(choices=PRIORITY, default='low')
     due = models.DateField(null=True, blank=True)
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
+
+class Comment(models.Model):
+    text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
