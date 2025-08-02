@@ -1,0 +1,10 @@
+body {
+background : content-box radial-gradient(rgb(69, 123, 173), rgb(48, 95, 114));
+}
+
+.room_list {
+display:flex;
+gap: 20px;
+flex-wrap:wrap; 
+
+}
