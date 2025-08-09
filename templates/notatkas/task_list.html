@@ -1,14 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Task List</h1>
+
+
+
 <a class="btn btn-primary" href="{% url 'task-create' %}" role="button">Create</a>
+
+<form method="get" class="d-flex align-items-center gap-2">
+  {{form.as_p}}
+  <button type="submit" class="btn btn-danger">Use filter</button>
+</form>
+
 <div class="list-group">
   {% for task in tasks %}
+
     <div href="{% url 'task-update' task.pk %}" class="list-group-item d-flex justify-content-between align-items-center" 
     aria-current="true">
-    <a>Title: {{ task.title }}, status: {{ task.status }} </a>
+    <a>Title: {{ task.title }}, status: {{ task.status }}, <i class="bi bi-bar-chart-fill"></i> Priority: {{task.prior}} </a>
+      <div>
+      <a href="{% url 'task-update' task.pk%}" class="btn btn-success"><i class="bi bi-arrow-return-right"></i></a>
       <a href="{% url 'task-delete' task.pk %}" class="btn btn-primary"><i class="bi bi-trash"></i></a>
-
+      </div> 
 </div>
   {% endfor %}
 </div>

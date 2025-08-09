@@ -7,7 +7,7 @@ class TaskForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(TaskForm, self).__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs.update({'class': 'form-control'})
+            self.fields[field].widget.attrs.update({'class': 'form-control my-input'})
     
     class Meta:
         model = Task
@@ -18,19 +18,21 @@ class TaskForm(forms.ModelForm):
 
 class TaskFilterForm(forms.Form):
     STATUS_CHOISES = [
+        ('', "all"),
         ("To Do", "To Do"),
         ("In Progression", "In progression"),
         ("Done", "Done")
     ]
 
-    PRIORITY = [    
+    PRIORITY = [
+        ("", "All"),
         ("low",'low'),
         ("med", "Medium"),
         ('high', 'High'),
         ('2high', 'PIZDA HIGH')
     ]
-    status = forms.CharField(choices=STATUS_CHOISES, label='Status')
-    priority = forms.CharField(choices=PRIORITY, label='Priority')
+    status = forms.ChoiceField(choices=STATUS_CHOISES, label='Status', required=False)
+    priority = forms.ChoiceField(choices=PRIORITY, label='Priority', required=False)
     def __init__(self, *args, **kwargs):
         super(TaskFilterForm, self).__init__(*args, **kwargs)
         for field in self.fields:

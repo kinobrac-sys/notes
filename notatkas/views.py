@@ -19,8 +19,16 @@ class TaskListView(LoginRequiredMixin, ListView):
         return context
 
     def get_queryset(self):
-        return Task.objects.filter(creator=self.request.user)
+        queryset =  Task.objects.filter(creator=self.request.user)
+        status = self.request.GET.get('status', "")
+        priority = self.request.GET.get('priority', "")
 
+        if status:
+            queryset = queryset.filter(status=status)
+        if priority:
+            queryset = queryset.filter(prior=priority)
+
+        return queryset
 
 
 class TaskCreateView(LoginRequiredMixin, CreateView):

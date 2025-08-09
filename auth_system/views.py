@@ -24,6 +24,8 @@ def login_page(request):
             user = form.get_user()
             login(request, user)
             return redirect('task-list')
+        else:
+            print(form.errors)  # Добавь эту строку для отладки
     context = {
         "form": form
     }

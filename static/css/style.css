@@ -1,10 +1,20 @@
-body {
-background : content-box radial-gradient(rgb(50, 144, 180)), rgb(89, 113, 122));
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.room_list {
-display:flex;
-gap: 20px;
-flex-wrap:wrap; 
+body {
+    min-height: 100vh;
+    height: 100%;
+    background: linear-gradient(to bottom right, blue, pink);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.my-input {
+  width: 30%;
+
 
 }

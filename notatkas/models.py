@@ -11,10 +11,10 @@ class Task(models.Model):
     ]
 
     PRIORITY = [    
-        ("low",'low'),
-        ("med", "Medium"),
-        ('high', 'High'),
-        ('2high', 'PIZDA HIGH')
+        ("Low",'low'),
+        ("Medium", "Medium"),
+        ('High', 'High'),
+        ('2High', 'PIZDA HIGH')
     ]
     title = models.CharField(max_length=200)
     desc = models.TextField()
