@@ -13,8 +13,18 @@ body {
     background-size: cover;
 }
 
-.my-input {
-  width: 30%;
+ .my-input {
+  background: linear-gradient(from bottom right, blue, pink);
+  color: rgb(0, 0, 0);
 
+} 
 
+.de-body {
+  min-height: 100vh;
+    height: 100%;
+    background: linear-gradient(from bottom right, blue, pink);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+  
