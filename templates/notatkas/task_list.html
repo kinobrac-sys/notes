@@ -18,7 +18,7 @@
     aria-current="true">
     <a>Title: {{ task.title }}, status: {{ task.status }}, <i class="bi bi-bar-chart-fill"></i> Priority: {{task.prior}} </a>
       <div>
-      <a href="{% url 'task-update' task.pk%}" class="btn btn-success"><i class="bi bi-arrow-return-right"></i></a>
+      <a href="{% url 'task-update' task.pk%}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
       <a href="{% url 'task-delete' task.pk %}" class="btn btn-primary"><i class="bi bi-trash"></i></a>
       </div> 
 </div>
